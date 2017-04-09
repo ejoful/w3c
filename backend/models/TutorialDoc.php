@@ -7,8 +7,8 @@ use Yii;
 /**
  * This is the model class for table "{{%tutorial_doc}}".
  *
- * @property integer $id
- * @property integer $tutorial_id
+ * @property string $id
+ * @property string $tutorial_id
  * @property integer $is_menu
  * @property string $slug
  * @property string $name
@@ -18,6 +18,9 @@ use Yii;
  * @property integer $position
  * @property integer $create_time
  * @property integer $update_time
+ * @property string $tutorial
+ *
+ * @property Tutorial $tutorial0
  */
 class TutorialDoc extends \yii\db\ActiveRecord
 {
@@ -35,12 +38,13 @@ class TutorialDoc extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tutorial_id', 'is_menu', 'slug', 'name', 'description', 'position'], 'required'],
             [['tutorial_id', 'is_menu', 'position', 'create_time', 'update_time'], 'integer'],
+            [['is_menu', 'slug', 'name', 'description', 'position'], 'required'],
             [['content'], 'string'],
-            [['slug'], 'string', 'max' => 100],
+            [['slug', 'tutorial'], 'string', 'max' => 100],
             [['name', 'tag'], 'string', 'max' => 255],
             [['description'], 'string', 'max' => 600],
+            [['tutorial_id'], 'exist', 'skipOnError' => true, 'targetClass' => Tutorial::className(), 'targetAttribute' => ['tutorial_id' => 'id']],
         ];
     }
 
@@ -50,18 +54,27 @@ class TutorialDoc extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('backend', '主键'),
-            'tutorial_id' => Yii::t('backend', '所属教程'),
-            'is_menu' => Yii::t('backend', '是否菜单'),
-            'slug' => Yii::t('backend', '别名'),
-            'name' => Yii::t('backend', '名字'),
-            'description' => Yii::t('backend', '描述'),
-            'content' => Yii::t('backend', '内容'),
-            'tag' => Yii::t('backend', '文章标签'),
-            'position' => Yii::t('backend', '排序'),
-            'create_time' => Yii::t('backend', '创建时间'),
-            'update_time' => Yii::t('backend', '修改时间'),
+            'id' => Yii::t('app', '主键'),
+            'tutorial_id' => Yii::t('app', '所属教程'),
+            'is_menu' => Yii::t('app', '是否菜单'),
+            'slug' => Yii::t('app', '别名'),
+            'name' => Yii::t('app', '名字'),
+            'description' => Yii::t('app', '描述'),
+            'content' => Yii::t('app', '内容'),
+            'tag' => Yii::t('app', '文章标签'),
+            'position' => Yii::t('app', '排序'),
+            'create_time' => Yii::t('app', '创建时间'),
+            'update_time' => Yii::t('app', '修改时间'),
+            'tutorial' => Yii::t('app', 'Tutorial'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTutorial0()
+    {
+        return $this->hasOne(Tutorial::className(), ['id' => 'tutorial_id']);
     }
 
     /**

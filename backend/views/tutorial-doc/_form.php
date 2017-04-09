@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'tutorial_id')->textInput() ?>
+    <?= $form->field($model, 'tutorial_id')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'is_menu')->textInput() ?>
 
@@ -32,8 +32,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'update_time')->textInput() ?>
 
+    <?= $form->field($model, 'tutorial')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

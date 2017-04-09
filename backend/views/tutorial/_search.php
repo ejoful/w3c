@@ -27,13 +27,15 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'img') ?>
 
+    <?php // echo $form->field($model, 'img_path') ?>
+
     <?php // echo $form->field($model, 'content') ?>
 
     <?php // echo $form->field($model, 'position') ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

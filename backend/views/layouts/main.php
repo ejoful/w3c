@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'W3cxyz',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -36,6 +36,14 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Opensource', 'url' => ['/opensource/index']],
+        ['label' => 'OpensourceCategory', 'url' => ['/opensource-category/index']],
+        ['label' => 'OpensourceDoc', 'url' => ['/opensource-doc/index']],
+        ['label' => 'Tutorial', 'url' => ['/tutorial/index']],
+        ['label' => 'TutorialCategory', 'url' => ['/tutorial-category/index']],
+        ['label' => 'TutorialDoc', 'url' => ['/tutorial-doc/index']],
+        ['label' => 'TutorialDocMenu', 'url' => ['/tutorial-doc-menu/index']],
+
         ['label' => '用户', 'url' => ['/user/admin/index']],
     ];
     if (Yii::$app->user->isGuest) {

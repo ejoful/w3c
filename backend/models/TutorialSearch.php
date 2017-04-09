@@ -19,7 +19,7 @@ class TutorialSearch extends Tutorial
     {
         return [
             [['id', 'tutorial_category_id', 'position'], 'integer'],
-            [['slug', 'name', 'description', 'img', 'content'], 'safe'],
+            [['slug', 'name', 'description', 'img', 'img_path', 'content'], 'safe'],
         ];
     }
 
@@ -68,6 +68,7 @@ class TutorialSearch extends Tutorial
             ->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'img', $this->img])
+            ->andFilterWhere(['like', 'img_path', $this->img_path])
             ->andFilterWhere(['like', 'content', $this->content]);
 
         return $dataProvider;

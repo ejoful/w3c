@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\TutorialDocSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Tutorial Docs');
+$this->title = Yii::t('app', 'Tutorial Docs');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tutorial-doc-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('backend', 'Create Tutorial Doc'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Tutorial Doc'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'position',
             // 'create_time:datetime',
             // 'update_time:datetime',
+            // 'tutorial',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Tutorial */
 
-$this->title = Yii::t('backend', 'Create Tutorial');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Tutorials'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Tutorial');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Tutorials'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tutorial-create">

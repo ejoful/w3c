@@ -19,7 +19,7 @@ class TutorialDocSearch extends TutorialDoc
     {
         return [
             [['id', 'tutorial_id', 'is_menu', 'position', 'create_time', 'update_time'], 'integer'],
-            [['slug', 'name', 'description', 'content', 'tag'], 'safe'],
+            [['slug', 'name', 'description', 'content', 'tag', 'tutorial'], 'safe'],
         ];
     }
 
@@ -71,7 +71,8 @@ class TutorialDocSearch extends TutorialDoc
             ->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'content', $this->content])
-            ->andFilterWhere(['like', 'tag', $this->tag]);
+            ->andFilterWhere(['like', 'tag', $this->tag])
+            ->andFilterWhere(['like', 'tutorial', $this->tutorial]);
 
         return $dataProvider;
     }

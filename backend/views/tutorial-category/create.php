@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\TutorialCategory */
 
-$this->title = Yii::t('backend', 'Create Tutorial Category');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Tutorial Categories'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Tutorial Category');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Tutorial Categories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tutorial-category-create">

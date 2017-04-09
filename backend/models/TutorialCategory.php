@@ -7,9 +7,11 @@ use Yii;
 /**
  * This is the model class for table "{{%tutorial_category}}".
  *
- * @property integer $id
+ * @property string $id
  * @property string $name
  * @property integer $position
+ *
+ * @property Tutorial[] $tutorials
  */
 class TutorialCategory extends \yii\db\ActiveRecord
 {
@@ -39,10 +41,18 @@ class TutorialCategory extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('backend', '主键'),
-            'name' => Yii::t('backend', '名字'),
-            'position' => Yii::t('backend', '排序'),
+            'id' => Yii::t('app', '主键'),
+            'name' => Yii::t('app', '名字'),
+            'position' => Yii::t('app', '排序'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTutorials()
+    {
+        return $this->hasMany(Tutorial::className(), ['tutorial_category_id' => 'id']);
     }
 
     /**

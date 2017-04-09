@@ -7,8 +7,8 @@ use Yii;
 /**
  * This is the model class for table "{{%tutorial_doc_menu}}".
  *
- * @property integer $id
- * @property integer $tutorial_id
+ * @property string $id
+ * @property string $tutorial_id
  * @property string $slug
  * @property string $name
  * @property integer $position
@@ -42,11 +42,11 @@ class TutorialDocMenu extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('backend', '主键'),
-            'tutorial_id' => Yii::t('backend', '所属教程'),
-            'slug' => Yii::t('backend', '别名'),
-            'name' => Yii::t('backend', '名字'),
-            'position' => Yii::t('backend', '排序'),
+            'id' => Yii::t('app', '主键'),
+            'tutorial_id' => Yii::t('app', '所属教程'),
+            'slug' => Yii::t('app', '别名'),
+            'name' => Yii::t('app', '名字'),
+            'position' => Yii::t('app', '排序'),
         ];
     }
 
